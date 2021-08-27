@@ -1,16 +1,10 @@
-.App {
-  text-align: center;
+body{
+  background: #282c34;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.page-body {
+  color: #fff;
+  padding: 2%;
 }
 
 .App-header {
@@ -24,15 +18,93 @@
   color: white;
 }
 
+.logo{
+  flex: 0 1 auto;
+  color: #fff
+}
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ------------- SEARCH SECTION -------------*/
+.search-section{
+  background: url(./assets/search-banner.jpg) 50% no-repeat,linear-gradient(#878787,#ebebeb);
+  background-size: cover;
+  height: 7vh;
+  padding: 1% 0 5% 1%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  align-items: flex-start;
+  color: #fff;
+}
+.search-content{
+  display: flex;
+  flex: 0 1 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1vh;
+
+}
+.search-input{
+  background: #fff;
+  width: 40vw;
+  height: 6vh;
+  font-size: 1.5rem;
+  border: none;
+  padding: 2.5%;
+  border-radius: 5px;
+  margin: 0 2% 2% 0%;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-box-shadow: 5px 5px 9px -5px #000000;
+  box-shadow: 5px 5px 9px -5px #000000;
+}
+.search-button{
+  background: #fff;
+  height: 6vh;
+  border: none;
+  padding: 2.5%;
+  border-radius: 5px;
+  margin: 0 2% 2% 0%;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: bold;
+  -webkit-box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
+  box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
+}
+
+/* ------------- WEATHER CARD -------------*/
+.weather-card {
+  background: #fff;
+  color: #2b2b2b;
+  font-size: 1.5rem;
+  padding: 2%;
+  border-radius: 5px;
+  margin: 2%;
+}
+.weather-card h2{
+  font-size: 1.7rem;
+  margin: 0;
+  color: #000;
+}
+
+
+
+
+
+/* ------------- GLOBAL CSS -------------*/
+
+.m-0{
+  margin: 0!important;
+}
+.col-white{
+  color: #fff;
+}
+.bold{
+  font-weight: bold;
+}
+.rem-15{
+  font-size: 1.5rem;
 }

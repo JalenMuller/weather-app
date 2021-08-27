@@ -1,25 +1,155 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { useState } from 'react'
+import searchIcon from "./assets/search-icon.png"
+import locationIcon from "./assets/location-icon.png"
+import Logo from "./components/Logo";
+import "./App.css"
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App =  () => {
+
+    const [loading, setLoading] = useState(false);
+    const [weather, setWeather] = useState('');
+    const [locInput, setLocInput] = useState('');
+    const [city, setCity] = useState('');
+    const [userLocation, setUserLocation] = useState('')
+    const baseURL = "https://api.openweathermap.org/";
+    const apiKey = '&appid=1424c156aeca3cc894f12db19e829024'
+
+    const getWeather = async (e) => {
+        e.preventDefault()
+
+        const url = baseURL + "/data/2.5/weather?q="+ locInput + apiKey
+        const req = await axios.get(url);
+        const res = await req;
+        console.log(res)
+        setWeather({
+            descp: res.data.weather[0].description,
+            temp: res.data.main.temp,
+            city: res.data.name,
+            humidity: res.data.main.humidity,
+            press: res.data.main.pressure,
+        })
+        setCity(res.data.name)
+
+    }
+    // api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=1424c156aeca3cc894f12db19e829024
+    // api.openweathermap.org/data/2.5/weather?lat=51.973576099999995&lon=4.4609001&appid=&appid=1424c156aeca3cc894f12db19e829024
+
+
+
+    const getLocalWeather = async () => {
+        setLoading(true)
+        const pos = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+
+        await setUserLocation({
+            lat: pos.coords.latitude,
+            long: pos.coords.longitude
+        })
+
+        const url = baseURL + 'data/2.5/weather?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + apiKey
+        const req = await axios.get(url);
+        const res = await req;
+        console.log(res)
+
+        setWeather({
+            descp: res.data.weather[0].description,
+            temp: res.data.main.temp,
+            city: res.data.name,
+            humidity: res.data.main.humidity,
+            press: res.data.main.pressure,
+        })
+        setCity(res.data.name)
+
+        setLoading(false)
+
+    };
+
+    //  async function getCoords_success(pos){
+
+    //      console.log(userLocation)
+    //
+    // }
+
+    // function getCoords_error(err){
+    //     console.warn('ERROR(' + err.code + '): ' + err.message);
+    // }
+
+    const handleChange = (e) => {
+        e.preventDefault()
+        const input = e.target.value
+        setLocInput(input)
+        console.log(userLocation)
+
+    }
+    const handleKeyPress = (e) => {
+
+        if (e.charCode === 13) {
+            e.preventDefault()
+            getWeather(e)
+        }
+
+
+    }
+
+    //Converting K to C
+    let k = weather.temp;
+    let C = k - 273.15
+    const PageBody = () =>{
+        return(
+            <div className="page-body">
+                <Logo/>
+                {loading && <p>Loading...</p>}
+                {weather && <Weather />}
+            </div>
+        )
+    }
+    const Weather = () => {
+        return <div className="weather-card">
+            <div>
+                <h2>Today's weather in {city}</h2>
+                <hr></hr>
+            </div>
+            <div className="Weath">
+                <div className="welement">
+                    Weather : {weather.descp}
+                </div>
+                <div className="welement">
+                    Temperature : {C.toFixed(2)} &#8451;
+                </div>
+                <div className="welement">
+                    Humidity :{weather.humidity} %
+                </div>
+                <div className="welement">
+                    Pressure :  {weather.press} mb
+                </div>
+            </div>
+        </div>
+    }
+
+    return (<>
+            <div className="search-section">
+
+                    <div className="search-content">
+                        {/*<p className="m-0 col-white bold rem-15">Your city:</p>*/}
+                        <input type="text"
+                               placeholder="Search for your city"
+                               onChange={handleChange}
+                               onKeyPress={handleKeyPress}
+                               className="search-input"
+                        />
+                        <button className="search-button" onClick={getWeather}><img src={searchIcon}/></button>
+                        <button className="search-button" onClick={getLocalWeather}><img src={locationIcon}/></button>
+
+
+                    </div>
+            </div>
+            <PageBody/>
+        </>
+    )
 }
 
-export default App;
+export default App
