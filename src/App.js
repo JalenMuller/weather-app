@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import Context from "./store/Context";
 import searchIcon from "./assets/search-icon.png"
 import locationIcon from "./assets/location-icon.png"
 import Logo from "./components/Logo";
@@ -103,33 +104,13 @@ const App =  () => {
             <div className="page-body">
                 <Logo/>
                 {loading && <p>Loading...</p>}
-                {weather && <Weather />}
+                {/*{weather && <Weather />}*/}
             </div>
         )
     }
-    const Weather = () => {
-        return <div className="weather-card">
-            <div>
-                <h2>Today's weather in {city}</h2>
-                <hr></hr>
-            </div>
-            <div className="Weath">
-                <div className="welement">
-                    Weather : {weather.descp}
-                </div>
-                <div className="welement">
-                    Temperature : {C.toFixed(2)} &#8451;
-                </div>
-                <div className="welement">
-                    Humidity :{weather.humidity} %
-                </div>
-                <div className="welement">
-                    Pressure :  {weather.press} mb
-                </div>
-            </div>
-        </div>
-    }
 
+
+    const {state, actions} = useContext(Context);
     return (<>
             <div className="search-section">
 
@@ -137,7 +118,8 @@ const App =  () => {
                         {/*<p className="m-0 col-white bold rem-15">Your city:</p>*/}
                         <input type="text"
                                placeholder="Search for your city"
-                               onChange={handleChange}
+                               // onChange={handleChange}
+                               onChange={(e) => actions({type:'setState', payload: {...state, city: e.target.value} })}
                                onKeyPress={handleKeyPress}
                                className="search-input"
                         />
