@@ -63,9 +63,10 @@ body{
 }
 .search-button{
   background: #fff;
-  height: 6vh;
+  /*height: fit-content;*/
+  width: fit-content;
+  min-height: 6vh;
   border: none;
-  padding: 2.5%;
   border-radius: 5px;
   margin: 0 2% 2% 0%;
   outline: none;
@@ -90,8 +91,20 @@ body{
   color: #000;
 }
 
-
-
+.small-icon{
+    width: 40px;
+    height: 20px;
+}
+.weather-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather-temp{
+  font-size: 3rem;
+  font-weight: bold;
+}
 
 
 /* ------------- GLOBAL CSS -------------*/

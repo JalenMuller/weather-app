@@ -1,7 +1,12 @@
 import {useState} from 'react'
 
 const useGlobalState = () => {
-    const [state, setState] = useState({city: ''});
+    const [state, setState] = useState({
+        city: '',
+        weather: [],
+        weatherLoading: false
+
+    });
 
     const actions = (action) => {
         const {type, payload} = action;
