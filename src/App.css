@@ -107,9 +107,35 @@ body{
   display: flex;
   align-items: center;
 }
+.weather-icon{
+  min-width: 100px;
+  min-height: 100px;
+  margin-left: 5%;
+}
 
 
 /* ------------- GLOBAL CSS -------------*/
+.skeleton{
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading{
+0%{
+  color: rgba(199,199,199);
+  background-color: rgba(199,199,199);
+}
+100%{
+  color: #fff;
+  background-color: #fff;
+}
+}
+.skeleton-text{
+  width: 100%;
+  margin-bottom: .25rem;
+}
+.skeleton-fit-content{
+  width: fit-content;
+  margin-bottom: .25rem;
+}
 
 .m-0{
   margin: 0!important;

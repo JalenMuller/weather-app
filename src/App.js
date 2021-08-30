@@ -10,7 +10,7 @@ import WeatherCard from "./components/WeatherCard";
 
 const App =  () => {
     const {state, actions} = useContext(Context);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState('idle');
     const [weather, setWeather] = useState('');
     const [locInput, setLocInput] = useState('');
     const [city, setCity] = useState('');
@@ -22,7 +22,7 @@ const App =  () => {
 
     const getWeather = async (e) => {
         e.preventDefault()
-
+        setLoading('loading')
         const url = baseURL + "/data/2.5/weather?q="+ state.city + apiKey
         try {
             const req = await axios.get(url);
@@ -44,8 +44,9 @@ const App =  () => {
             })
         }catch(err){
             alert('Your city was not found.')
+            setLoading('idle')
         }
-
+        setLoading('done')
     }
     // api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=1424c156aeca3cc894f12db19e829024
     // api.openweathermap.org/data/2.5/weather?lat=51.973576099999995&lon=4.4609001&appid=&appid=1424c156aeca3cc894f12db19e829024
@@ -53,14 +54,9 @@ const App =  () => {
 
     //
     const getLocalWeather = async () => {
-        if(state.weatherLoading){
-            return
-        }
 
-        actions({type:'setState', payload: {
-                ...state,
-                    weatherLoading: true
-            } })
+
+        setLoading('loading')
         const pos = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject);
         });
@@ -79,17 +75,22 @@ const App =  () => {
                     press: res.data.main.pressure,
                     icon: res.data.weather[0].icon
                 }
-            } })
+            } },
+
+            )
 
         setCity(res.data.name)
-
-        // actions({type:'setState', payload: {
-        //         ...state,
-        //         weatherLoading: false
-        //     } })
-
+        setLoading('done')
+        
     };
-
+    const setWeatherLoading = (loadingStatus) =>{
+        actions({type:'setState', payload: {
+            ...state,
+            status:{
+                weatherLoading: loadingStatus
+            }
+        } })
+    }
     const handleChange = (e) => {
         e.preventDefault()
         const input = e.target.value
@@ -101,7 +102,9 @@ const App =  () => {
 
         if (e.charCode === 13) {
             e.preventDefault()
+            if(e.target.value !== ''){
             getWeather(e)
+            }
         }
 
 
@@ -112,8 +115,8 @@ const App =  () => {
         return(
             <div className="page-body">
                 <Logo/>
-                {state.weatherLoading && <p>Loading...</p>}
-                <WeatherCard/>
+                {state.weatherLoading === 'loading' && <p>Loading...</p>}
+                <WeatherCard status={loading}/>
             </div>
         )
     }

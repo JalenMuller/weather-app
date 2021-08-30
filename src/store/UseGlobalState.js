@@ -4,7 +4,9 @@ const useGlobalState = () => {
     const [state, setState] = useState({
         city: '',
         weather: [],
-        weatherLoading: false
+        status: {
+            // weatherLoading: 'idle'
+        }
 
     });
 
