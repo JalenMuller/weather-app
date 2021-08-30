@@ -19,8 +19,8 @@ const WeatherCard = () => {
             <div className="weather-box">
                 <div className="weather-temp">
                     {Math.round(C)} &#8451;
+                    <img src={"http://openweathermap.org/img/wn/" + state.weather.icon + "@2x.png"} alt="weather icon"/>
                 </div>
-                <img src={"http://openweathermap.org/img/wn/" + state.weather.icon + "@2x.png"}/>
             <div className="weather-info">
                 <div className="welement">
                     Weather : {state.weather.descp}

@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b826ec92-ccf4-4d20-bfed-12b49a1cb9f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/cursor-fill.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/geo-alt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/WeatherCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Weather.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/UseGlobalState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/UseGlobalState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WeatherCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherCard.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +88,7 @@
       <workItem from="1629788873499" duration="33000" />
       <workItem from="1630069113165" duration="7583000" />
       <workItem from="1630082597374" duration="8155000" />
-      <workItem from="1630272210006" duration="5492000" />
+      <workItem from="1630272210006" duration="5755000" />
     </task>
     <servers />
   </component>

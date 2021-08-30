@@ -104,6 +104,8 @@ body{
 .weather-temp{
   font-size: 3rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 
