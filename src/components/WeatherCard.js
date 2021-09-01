@@ -10,7 +10,6 @@ const WeatherCard = (status) => {
     let C = k - 273.15
     console.log(status)
     if (status.status === 'idle') {
-        console.log(status)
         return(
         <p>Find your city to get started.</p>
         )
@@ -18,9 +17,8 @@ const WeatherCard = (status) => {
 
         return (
             <div className="weather-card">
-                <div>
+                <div className="mb-2">
                     <h2 className="skeleton skeleton-fit-content">Today's weather in New York</h2>
-                    <hr></hr>
                 </div>
                 <div className="weather-box">
                     <div className="weather-temp">
@@ -29,13 +27,13 @@ const WeatherCard = (status) => {
                     </div>
                 <div className="weather-info">
                     <div className="skeleton skeleton-text">
-                        Weather : {state.weather.descp}
+                        Weather : broken clouds
                     </div>
                     <div className="skeleton skeleton-text">
-                        Humidity :{state.weather.humidity} %
+                        Humidity : 72%
                     </div>
                     <div className="skeleton skeleton-text">
-                        Pressure : {state.weather.press} mb
+                        Pressure : 1022 mb
                     </div>
                 </div>
             </div>
@@ -44,23 +42,25 @@ const WeatherCard = (status) => {
     }else if(status.status === 'done'){
         return(
         <div className="weather-card">
-        <div>
-            <h2>Today's weather in {state.weather.city}</h2>
-            <hr></hr>
+        <div className="mb-2">
+            <h2 className="weather-card-title">Today's weather in {state.weather.city}</h2>
+            <div className="divider-black"/>
         </div>
         <div className="weather-box">
             <div className="weather-temp">
-                {Math.round(C)} &#8451;
-                <img className="" src={"http://openweathermap.org/img/wn/" + state.weather.icon + "@2x.png"} alt="weather icon"/>
+                <img className="weather-icon" src={"http://openweathermap.org/img/wn/" + state.weather.icon + "@2x.png"} alt="weather icon"/>
+
+                {Math.round(C)}<span className="temp">°C</span>
             </div>
         <div className="weather-info">
-            <div className="welement">
-                Weather : {state.weather.descp}
+            {/*todo gevoelstemperatuur*/}
+            <div className="weather-info-descp">
+                {state.weather.descp}
             </div>
-            <div className="welement">
+            <div className="weather-info-item">
                 Humidity :{state.weather.humidity} %
             </div>
-            <div className="welement">
+            <div className="weather-info-item">
                 Pressure : {state.weather.press} mb
             </div>
         </div>
