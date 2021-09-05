@@ -20,7 +20,8 @@ body{
 
 .logo{
   flex: 0 1 auto;
-  color: #fff
+  color: #fff;
+  text-align: center;
 }
 .App-link {
   color: #61dafb;
@@ -28,7 +29,7 @@ body{
 
 /* ------------- SEARCH SECTION -------------*/
 .search-section{
-  background: url(./assets/search-banner.jpg) 50% no-repeat,linear-gradient(#878787,#ebebeb);
+  background: url(assets/images/search-banner.jpg) 50% no-repeat,linear-gradient(#878787,#ebebeb);
   background-size: cover;
   height: 7vh;
   padding: 1% 0 5% 1%;
@@ -63,9 +64,10 @@ body{
 }
 .search-button{
   background: #fff;
-  height: 6vh;
+  /*height: fit-content;*/
+  width: fit-content;
+  min-height: 6vh;
   border: none;
-  padding: 2.5%;
   border-radius: 5px;
   margin: 0 2% 2% 0%;
   outline: none;
@@ -83,21 +85,122 @@ body{
   padding: 2%;
   border-radius: 5px;
   margin: 2%;
+  -webkit-box-shadow: 5px 5px 9px -5px #000000;
+  box-shadow: 5px 5px 9px -5px #000000;
 }
-.weather-card h2{
+.weather-card-title{
   font-size: 1.7rem;
-  margin: 0;
+  margin: 0 0 2% 0;
   color: #000;
+  text-align: center;
+}
+
+.small-icon{
+  width: 40px;
+  height: 20px;
+}
+.weather-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.weather-info{
+  font-size: 2rem;
+}
+.weather-info-descp{
+  font-weight: bold;
+  margin-bottom: 2%;
+}
+.weather-info-item{
+  /*border-bottom: 1px solid #000;*/
+}
+.weather-temp{
+  font-size: 5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.weather-icon{
+  width: 75px;
+  height: 75px;
+  background-color: #282c34;
+  border-radius: 50%;
+  margin-right: 7.5%;
+
+}
+.temp{
+  font-size: 2rem;
+  margin-bottom: 10%;
 }
 
 
+.skeleton{
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading{
+  0%{
+    color: rgba(199,199,199);
+    background-color: rgba(199,199,199);
+  }
+  100%{
+    color: #fff;
+    background-color: #fff;
+  }
+}
+.skeleton-text{
+  width: 100%;
+  margin-bottom: .25rem;
+}
+.skeleton-fit-content{
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: .5rem;
 
+}
+
+.divider-black{
+  height: 2px;
+  background-color: #000;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ------------- MEDIA QUERIES -------------*/
+@media screen and (max-width: 765px) {
+  .search-input{
+    width: 55vw;
+  }
+  .weather-box{
+    flex-direction: column;
+    min-height: 50vh;
+  }
+  .weather-icon{
+    width: 100px;
+    height: 100px;
+  }
+  .weather-info{
+    margin-left: 4%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .search-input{
+    width: 45vw;
+  }
+
+}
 
 
 /* ------------- GLOBAL CSS -------------*/
 
 .m-0{
   margin: 0!important;
+}
+.mb-2{
+  margin-bottom: 1%;
+}
+.mb-2{
+  margin-bottom: 2%;
 }
 .col-white{
   color: #fff;
@@ -107,4 +210,10 @@ body{
 }
 .rem-15{
   font-size: 1.5rem;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
 }

@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
-import searchIcon from "./assets/search-icon.png"
-import locationIcon from "./assets/location-icon.png"
+import searchIcon from "./assets/images/search-icon.png"
+import locationIcon from "./assets/images/location-icon.png"
 import Logo from "./components/Logo";
 import "./App.css"
 import axios from 'axios'
-
+import WeatherCard from "./components/WeatherCard";
 
 const App =  () => {
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState('idle');
     const [weather, setWeather] = useState('');
     const [locInput, setLocInput] = useState('');
     const [city, setCity] = useState('');
@@ -19,7 +19,8 @@ const App =  () => {
 
     const getWeather = async (e) => {
         e.preventDefault()
-
+        setLoading('loading')
+        console.log(e.target.value)
         const url = baseURL + "/data/2.5/weather?q="+ locInput + apiKey
         const req = await axios.get(url);
         const res = await req;
@@ -30,9 +31,10 @@ const App =  () => {
             city: res.data.name,
             humidity: res.data.main.humidity,
             press: res.data.main.pressure,
+            icon: res.data.weather[0].icon
         })
         setCity(res.data.name)
-
+        setLoading('done')
     }
     // api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=1424c156aeca3cc894f12db19e829024
     // api.openweathermap.org/data/2.5/weather?lat=51.973576099999995&lon=4.4609001&appid=&appid=1424c156aeca3cc894f12db19e829024
@@ -40,7 +42,11 @@ const App =  () => {
 
 
     const getLocalWeather = async () => {
-        setLoading(true)
+        if (loading === 'loading'){
+            return
+        }
+
+        setLoading('loading')
         const pos = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject);
         });
@@ -61,10 +67,11 @@ const App =  () => {
             city: res.data.name,
             humidity: res.data.main.humidity,
             press: res.data.main.pressure,
+            icon: res.data.weather[0].icon
         })
         setCity(res.data.name)
 
-        setLoading(false)
+        setLoading('done')
 
     };
 
@@ -80,13 +87,12 @@ const App =  () => {
 
     const handleChange = (e) => {
         e.preventDefault()
-        const input = e.target.value
-        setLocInput(input)
-        console.log(userLocation)
+        setLocInput(e.target.value)
+        // console.log(userLocation)
 
     }
     const handleKeyPress = (e) => {
-
+        // check if key pressed is enter
         if (e.charCode === 13) {
             e.preventDefault()
             getWeather(e)
@@ -96,45 +102,25 @@ const App =  () => {
     }
 
     //Converting K to C
-    let k = weather.temp;
-    let C = k - 273.15
+
     const PageBody = () =>{
         return(
             <div className="page-body">
                 <Logo/>
-                {loading && <p>Loading...</p>}
-                {weather && <Weather />}
+                {/*{loading === 'loading' && <p>Loading...</p>}*/}
+                {/*{weather && <Weather />}*/}
+                <WeatherCard weather={weather} loading={loading}/>
             </div>
         )
     }
-    const Weather = () => {
-        return <div className="weather-card">
-            <div>
-                <h2>Today's weather in {city}</h2>
-                <hr></hr>
-            </div>
-            <div className="Weath">
-                <div className="welement">
-                    Weather : {weather.descp}
-                </div>
-                <div className="welement">
-                    Temperature : {C.toFixed(2)} &#8451;
-                </div>
-                <div className="welement">
-                    Humidity :{weather.humidity} %
-                </div>
-                <div className="welement">
-                    Pressure :  {weather.press} mb
-                </div>
-            </div>
-        </div>
-    }
+
 
     return (<>
             <div className="search-section">
 
                     <div className="search-content">
                         {/*<p className="m-0 col-white bold rem-15">Your city:</p>*/}
+
                         <input type="text"
                                placeholder="Search for your city"
                                onChange={handleChange}
