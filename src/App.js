@@ -7,7 +7,8 @@ import "./App.css"
 import axios from 'axios'
 import WeatherCard from "./components/WeatherCard";
 import LoadingSpinner from './components/LoadingSpinner';
-import { GeoFill } from 'react-bootstrap-icons';
+import SearchBar from './components/SearchBar';
+
 const App =  () => {
 
     const [loading, setLoading] = useState('idle');
@@ -19,7 +20,6 @@ const App =  () => {
     const apiKey = '&appid=1424c156aeca3cc894f12db19e829024'
 
     const getWeather = async (e) => {
-        e.preventDefault()
         setLoading('loading')
         console.log(e.target.value)
         const url = baseURL + "/data/2.5/weather?q="+ e.target.value + apiKey
@@ -70,20 +70,24 @@ const App =  () => {
             city: res.data.name,
             humidity: res.data.main.humidity,
             press: res.data.main.pressure,
+            feels_like: res.data.main.feels_like,
+            temp_max: res.data.main.temp_max,
+            temp_min: res.data.main.temp_min,
             icon: res.data.weather[0].icon,
             sunrise: res.data.sys.sunrise,
             sunset: res.data.sys.sunset
         })
+        console.log(weather)
     }
 
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         e.preventDefault()
         setLocInput(e.target.value)
         // console.log(userLocation)
 
     }
-    const handleKeyPress = (e) => {
+    const handleKeyPress = e => {
         // check if key pressed is enter
         if (e.charCode === 13) {
             e.preventDefault()
@@ -99,27 +103,17 @@ const App =  () => {
             <div className="page-body">
                 {loading === 'loading' && <LoadingSpinner/>}
                 {loading === 'done' ? <WeatherCard weather={weather}/>
-                : <p className="center-text">search for your location</p>}
+                : <p className="find-location-text">Search for your location to get started.</p>}
                 
             </div>
         )
     }
 
 
-    return (<div className="App">
-                    <Logo/>
-                    <div className="search-content">
-                        <input type="text"
-                               placeholder="Search by city"
-                               onChange={handleChange}
-                               onKeyPress={handleKeyPress}
-                               className="search-input"
-                               ref={searchInput}
-                        />
-                        <div className="use-location"><GeoFill color="#ff4800" size={24} className="mr-2"/>Or use your location</div>
-                        {/* <button className="search-button" onClick={getWeather}><img src={searchIcon}/></button> */}
-                        {/* <button className="search-button" onClick={getLocalWeather}><img className="small-icon" src={locationIcon}/></button> */}
-            </div>
+    return (
+        <div className="App">
+            <Logo/>
+            <SearchBar getWeather={getWeather} getLocalWeather={getLocalWeather}/>
             <PageBody/>
         </div>
     )

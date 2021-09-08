@@ -20,10 +20,19 @@ function convertUnixTimestamp(timestamp){
     var formattedTime = hours + ':' + minutes.substr(-2)
     return formattedTime
 }
+function getCelsius(temp){
+    // kelvin to celsius
+    return Math.round(temp - 273.15);
+}
+
 
 const WeatherCard = (props) => {
-    let k = props.weather.temp;
-    let C = Math.round(k - 273.15);
+
+    let currentTempCelsius = getCelsius(props.weather.temp)
+    let feelsLikeTempCelsius = getCelsius(props.weather.feels_like)
+    console.log(props.weather)
+    let maxTempCelsius = getCelsius(props.weather.temp_max)
+    let minTempCelsius = getCelsius(props.weather.temp_min)
 
     let sunrise = convertUnixTimestamp(props.weather.sunrise)
     let sunset = convertUnixTimestamp(props.weather.sunset)
@@ -33,17 +42,18 @@ const WeatherCard = (props) => {
         <>
                 
                 
-                {/* <div className="divider-black"/> */}
+     <div className="weather-container">          
      <div className="weather-bg-block">
            <span className='weather-card-title'>{props.weather.city}</span>
             <div className="weather-details">
                 <div className="temp-icon">
-                        <div className="mb-10">{C}<span className="temp">°C</span></div>
+                        <div className="mb-10">{currentTempCelsius}<span className="temp">°C</span></div>
                         <div><img className={'weather-icon'} src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"} /></div>
                     </div>
-                    <div className="rem-15"><Sunrise size={24} />{sunrise}</div>
-                    <div className="rem-15"><Sunset size={24} />{sunset}</div>
-                    {/* <div className="rem-15"><img src={sunriseIcon} className="detail-icon"/>{sunrise}</div> */}
+                    <div>
+                    <div className="rem-15 m-2"><Sunrise size={24} className="icon-align"/>{sunrise}</div>
+                    <div className="rem-15 m-2"><Sunset size={24}  className="icon-align"/>{sunset}</div>
+                    </div>
                 </div>
                    
                     <div className="weather-details-descp">{props.weather.descp}</div>
@@ -54,6 +64,18 @@ const WeatherCard = (props) => {
                 <div className="weather-info">
                     {/*todo gevoelstemperatuur*/}
                     <div className="weather-info-item border-btm-white">
+                        <div>Feels like:</div>
+                        <div>{feelsLikeTempCelsius}<span className="temp-small">°C</span></div>
+                    </div>
+                    <div className="weather-info-item border-btm-white">
+                        <div>Min Temp:</div>
+                        <div>{minTempCelsius}<span className="temp-small">°C</span></div>
+                    </div>
+                    <div className="weather-info-item border-btm-white">
+                        <div>Max Temp:</div>
+                        <div>{maxTempCelsius}<span className="temp-small">°C</span></div>
+                    </div>
+                    <div className="weather-info-item border-btm-white">
                         <div>Humidity:</div>
                         <div>{props.weather.humidity} %</div>
                     </div>
@@ -63,18 +85,9 @@ const WeatherCard = (props) => {
                     </div>
                 </div>
         </div>
+        </div>
         </>
     )
 }
 // 
 export default WeatherCard
-
-{/* <div className="weather-details">
-                    
-// <img className='weather-icon'
-//      src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"} />
-// {/*if NaN show nothing*/}
-// <div className=""> {C > 0 ? C : ''}<span className="temp">°C</span></div>
-// <div className="">Sun up: </div>
-
-// </div> */}
