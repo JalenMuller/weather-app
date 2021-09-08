@@ -1,10 +1,24 @@
-body{
-  background: #282c34;
+@font-face {
+  font-family: Titillium Web;
+  src: url(./assets/fonts/TitilliumWeb-Regular.ttf);
+}
+
+body, html{
+  font-family: 'Titillium Web';
+  background: #f12711; 
+background: -webkit-linear-gradient(to top, #f5af19, #f12711);
+background: linear-gradient(to top, #f5af19, #f12711);
+}
+
+.App{
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Titillium Web';
 }
 
 .page-body {
   color: #fff;
-  padding: 2%;
+  padding: 1%;
 }
 
 .App-header {
@@ -29,34 +43,30 @@ body{
 
 /* ------------- SEARCH SECTION -------------*/
 .search-section{
-  background: url(assets/images/search-banner.jpg) 50% no-repeat,linear-gradient(#878787,#ebebeb);
-  background-size: cover;
-  height: 7vh;
-  padding: 1% 0 5% 1%;
   display: flex;
   justify-content: flex-start;
   position: relative;
   align-items: flex-start;
   color: #fff;
+  margin: 2.5% 0 10% 0;
 }
 .search-content{
   display: flex;
-  flex: 0 1 auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 1vh;
-
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3vh;
 }
+
 .search-input{
   background: #fff;
   width: 40vw;
   height: 6vh;
+  padding: 20px;
   font-size: 1.5rem;
   border: none;
-  padding: 2.5%;
-  border-radius: 5px;
-  margin: 0 2% 2% 0%;
+  border-radius: 4px;
+  margin: 0 2% 0 0%;
   outline: none;
   box-sizing: border-box;
   -webkit-box-shadow: 5px 5px 9px -5px #000000;
@@ -65,73 +75,118 @@ body{
 .search-button{
   background: #fff;
   /*height: fit-content;*/
-  width: fit-content;
   min-height: 6vh;
+  width: 6vh;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   margin: 0 2% 2% 0%;
   outline: none;
   box-sizing: border-box;
   font-weight: bold;
-  -webkit-box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
-  box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
+  -webkit-box-shadow: 5px 5px 9px -4px #000000;
+  box-shadow: 5px 5px 9px -4px #000000;
 }
 
+.use-location{
+  background: #fff;
+  width: 40vw;
+  height: 6vh;
+  padding: 1% 0 0 2%;
+  font-size: 1.3rem;
+  border-radius: 0 0 4px 4px;
+  margin: 0 2% 2% 0%;
+  outline: none;
+  color:rgb(41, 41, 41);
+  box-sizing: border-box;
+  border-top: 5px solid #ff4800;
+  -webkit-box-shadow: 5px 5px 9px -5px #000000;
+  box-shadow: 5px 5px 9px -5px #000000; 
+}
+
+.search-input::-webkit-input-placeholder {
+  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.search-input:-ms-input-placeholder {
+  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.search-input:-moz-placeholder {
+  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.search-input::-moz-placeholder {
+  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  color: #000;
+}
 /* ------------- WEATHER CARD -------------*/
 .weather-card {
-  background: #fff;
-  color: #2b2b2b;
+  /* background: #fff; */
+  color: #fff;
   font-size: 1.5rem;
   padding: 2%;
-  border-radius: 5px;
+  border-radius: 20px;
   margin: 2%;
-  -webkit-box-shadow: 5px 5px 9px -5px #000000;
-  box-shadow: 5px 5px 9px -5px #000000;
 }
 .weather-card-title{
-  font-size: 1.7rem;
-  margin: 0 0 2% 0;
-  color: #000;
-  text-align: center;
+  font-size: 2rem;
+}
+
+.weather-details{
+  display: flex;
+  font-size: 3rem;
+  justify-content: space-around;
 }
 
 .small-icon{
-  width: 40px;
+  width: 20px;
   height: 20px;
 }
-.weather-box{
+.detail-icon{
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+.temp-icon{
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
 }
 .weather-info{
   font-size: 2rem;
+  align-self: flex-start;
+  /* width: 90%; */
 }
-.weather-info-descp{
-  font-weight: bold;
+.weather-details-descp{
   margin-bottom: 2%;
+  font-size: 2rem;
+  /* align-self: flex-end; */
 }
 .weather-info-item{
-  /*border-bottom: 1px solid #000;*/
-}
-.weather-temp{
-  font-size: 5rem;
-  font-weight: bold;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+}
+.weather-info-item:last-child{
+  border-bottom: none;
+}
+
+
+.weather-bg-block{
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
 }
 .weather-icon{
   width: 75px;
   height: 75px;
-  background-color: #282c34;
   border-radius: 50%;
-  margin-right: 7.5%;
-
 }
 .temp{
-  font-size: 2rem;
-  margin-bottom: 10%;
+  font-size: 1.5rem;
+
 }
 
 
@@ -162,18 +217,21 @@ body{
 .divider-black{
   height: 2px;
   background-color: #000;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
 /* ------------- MEDIA QUERIES -------------*/
 @media screen and (max-width: 765px) {
   .search-input{
-    width: 55vw;
+    width: 80vw;
+  }
+  .use-location{
+    width: 80vw;
   }
   .weather-box{
     flex-direction: column;
-    min-height: 50vh;
+    min-height: 15vh;
   }
   .weather-icon{
     width: 100px;
@@ -181,6 +239,14 @@ body{
   }
   .weather-info{
     margin-left: 4%;
+    width: 95%;
+  }
+  .weather-info-item{
+    display: flex;
+    justify-content: space-between;
+  }
+  .weather-details{
+    flex-direction: row;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -188,6 +254,40 @@ body{
     width: 45vw;
   }
 
+}
+.spinner {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 20px solid rgb(134, 134, 134);
+  border-top-color: #09d;
+  animation: spin 1s linear infinite;
+}
+.spinner-box{
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+    -webkit-box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
+  box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -201,6 +301,13 @@ body{
 }
 .mb-2{
   margin-bottom: 2%;
+}
+.mb-10{
+  margin-bottom: 10%;
+}
+.mr-2{
+  margin-right: 2%;
+  vertical-align:-0.1875em;
 }
 .col-white{
   color: #fff;
@@ -216,4 +323,17 @@ body{
 }
 .float-right{
   float: right;
+}
+.center-text{
+  text-align: center;
+}
+.align-flex-end{
+  text-align: right;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+.border-btm-white{
+  border-bottom: 1px solid rgb(255, 255, 255, 0.8);
 }
