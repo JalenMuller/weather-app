@@ -30,25 +30,25 @@ const WeatherCard = (props) => {
 
     let currentTempCelsius = getCelsius(props.weather.temp)
     let feelsLikeTempCelsius = getCelsius(props.weather.feels_like)
-    console.log(props.weather)
     let maxTempCelsius = getCelsius(props.weather.temp_max)
     let minTempCelsius = getCelsius(props.weather.temp_min)
 
     let sunrise = convertUnixTimestamp(props.weather.sunrise)
     let sunset = convertUnixTimestamp(props.weather.sunset)
-    console.log(sunrise)
-    console.log(sunset)
     return(
         <>
-                
-                
+    {props.weather &&      
      <div className="weather-container">          
      <div className="weather-bg-block">
            <span className='weather-card-title'>{props.weather.city}</span>
             <div className="weather-details">
                 <div className="temp-icon">
                         <div className="mb-10">{currentTempCelsius}<span className="temp">°C</span></div>
-                        <div><img className={'weather-icon'} src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"} /></div>
+                        <div>
+                        
+                        <img className={'weather-icon'} src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"} />
+                        
+                        </div>
                     </div>
                     <div>
                     <div className="rem-15 m-2"><Sunrise size={24} className="icon-align"/>{sunrise}</div>
@@ -86,6 +86,7 @@ const WeatherCard = (props) => {
                 </div>
         </div>
         </div>
+          }
         </>
     )
 }

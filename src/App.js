@@ -4,65 +4,20 @@ import searchIcon from "./assets/images/search-icon.png"
 import locationIcon from "./assets/images/icon-location.svg"
 import Logo from "./components/Logo";
 import "./App.css"
-import axios from 'axios'
+import axios from './data/axios'
 import WeatherCard from "./components/WeatherCard";
 import LoadingSpinner from './components/LoadingSpinner';
 import SearchBar from './components/SearchBar';
 
 const App =  () => {
-
     const [loading, setLoading] = useState('idle');
     const [weather, setWeather] = useState('');
-    const [locInput, setLocInput] = useState('');
-    const [city, setCity] = useState('');
-    const [userLocation, setUserLocation] = useState('')
-    const baseURL = "https://api.openweathermap.org/";
+
     const apiKey = '&appid=1424c156aeca3cc894f12db19e829024'
 
-    const getWeather = async (e) => {
-        setLoading('loading')
-        console.log(e.target.value)
-        const url = baseURL + "/data/2.5/weather?q="+ e.target.value + apiKey
-        const req = await axios.get(url);
-        const res = await req;
-        console.log(res)
-        saveWeather(res)
-        setLoading('done')
-    }
-    // api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=1424c156aeca3cc894f12db19e829024
-    // api.openweathermap.org/data/2.5/weather?lat=51.973576099999995&lon=4.4609001&appid=&appid=1424c156aeca3cc894f12db19e829024
-
-
-
-    const getLocalWeather = async () => {
-        if (loading === 'loading'){
-            return
-        }
-        setLoading('loading')
-
-        const pos =  await new Promise((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, reject) 
-            
-        })
-        
-
-        await setUserLocation({
-            lat: pos.coords.latitude,
-            long: pos.coords.longitude
-        })
-
-        const url = baseURL + 'data/2.5/weather?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + apiKey
-        const req = await axios.get(url);
-        const res = await req;
-        console.log(res)
-
-        saveWeather(res)
-        setCity(res.data.name)
-
-        setLoading('done')
-
-    };
-    const saveWeather = (res) => {
+    async function fetchWeather(fetchUrl){
+        const res = await axios.get(fetchUrl)
+     
 
         setWeather({
             descp: res.data.weather[0].description,
@@ -77,16 +32,57 @@ const App =  () => {
             sunrise: res.data.sys.sunrise,
             sunset: res.data.sys.sunset
         })
-        console.log(weather)
+
+        localStorage.setItem('recentLocation', res.data.name)
+
+        return res
     }
 
-
-    const handleChange = e => {
-        e.preventDefault()
-        setLocInput(e.target.value)
-        // console.log(userLocation)
-
+    const getWeather = async (e) => {
+        if(loading === 'loading') return
+        setLoading('loading')
+        let fetchUrl = "/data/2.5/weather?q="+ e.target.value + apiKey
+        await fetchWeather(fetchUrl)
+        setLoading('done')
     }
+    function getPosition() {
+
+        return new Promise((res, rej) => {
+ 
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(success, error);
+            } else {
+              console.log("Sorry, your browser does not support HTML5 geolocation.");
+            }
+        
+            function success(position) {
+              res(position)
+            }
+        
+            function error(error) {
+              console.log("Sorry, we can\'t retrieve your local weather without location permission.");
+            }
+        
+          });
+        
+        };
+
+    const getLocalWeather = async () => {
+        if(loading === 'loading') return
+        setLoading('loading')
+        const pos = await getPosition()
+        console.log(pos.coords)
+        let latitude = pos.coords.latitude
+        let longitude = pos.coords.longitude
+        console.log(pos.coords.longitude)
+        const fetchUrl = 'data/2.5/weather?lat=' + latitude + '&lon=' + longitude + apiKey
+        await fetchWeather(fetchUrl)
+        setLoading('done')
+
+    };
+
+
+
     const handleKeyPress = e => {
         // check if key pressed is enter
         if (e.charCode === 13) {
@@ -96,14 +92,31 @@ const App =  () => {
 
 
     }
-    const searchInput = React.useRef(null)
+
+    const RecentLocWidget = () => {
+        const recentLoc = localStorage.getItem('recentLocation')
+        if (recentLoc){
+            return(
+            <div className="weather-bg-block">
+            <h2>Or use your most recent city</h2>
+            <h2>{recentLoc}</h2>
+            </div>
+            )
+        } else {
+            return null
+        }
+    }
 
     const PageBody = () =>{
         return(
             <div className="page-body">
                 {loading === 'loading' && <LoadingSpinner/>}
-                {loading === 'done' ? <WeatherCard weather={weather}/>
-                : <p className="find-location-text">Search for your location to get started.</p>}
+                {loading === 'done' ? 
+                <WeatherCard weather={weather}/> : 
+                <p className="find-location-text">Search for your city to get started.</p>}
+                {/* <RecentLocWidget/> */}
+              
+                
                 
             </div>
         )

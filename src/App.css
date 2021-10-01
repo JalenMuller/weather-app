@@ -3,17 +3,18 @@
   src: url(./assets/fonts/TitilliumWeb-Regular.ttf);
 }
 
-body, html{
-  font-family: 'Titillium Web';
-  background: #f12711; 
-background: -webkit-linear-gradient(to top, #f5af19, #f12711);
-background: linear-gradient(to top, #f5af19, #f12711);
+body,
+html {
+  font-family: "Titillium Web";
+  background: #f12711;
+  background: -webkit-linear-gradient(to top, #f5af19, #f12711);
+  background: linear-gradient(to top, #f5af19, #f12711);
 }
 
-.App{
+.App {
   min-height: 100vh;
   min-width: 100vw;
-  font-family: 'Titillium Web';
+  font-family: "Titillium Web";
 }
 
 .page-body {
@@ -32,7 +33,7 @@ background: linear-gradient(to top, #f5af19, #f12711);
   color: white;
 }
 
-.logo{
+.logo {
   flex: 0 1 auto;
   color: #fff;
   text-align: center;
@@ -42,7 +43,7 @@ background: linear-gradient(to top, #f5af19, #f12711);
 }
 
 /* ------------- SEARCH SECTION -------------*/
-.search-section{
+.search-section {
   display: flex;
   justify-content: flex-start;
   position: relative;
@@ -50,7 +51,7 @@ background: linear-gradient(to top, #f5af19, #f12711);
   color: #fff;
   margin: 2.5% 0 10% 0;
 }
-.search-content{
+.search-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +59,7 @@ background: linear-gradient(to top, #f5af19, #f12711);
   margin-top: 3vh;
 }
 
-.search-input{
+.search-input {
   background: #fff;
   width: 40vw;
   height: 6vh;
@@ -66,14 +67,14 @@ background: linear-gradient(to top, #f5af19, #f12711);
   font-size: 1.5rem;
   border: none;
   border-radius: 4px;
-  margin: 0 2% 2% 0%;
+  margin: 0 2% 0 0%;
   outline: none;
   box-sizing: border-box;
   -webkit-appearance: none;
   -webkit-box-shadow: 5px 5px 9px -5px #000000;
   box-shadow: 5px 5px 9px -5px #000000;
 }
-.search-button{
+.search-button {
   background: #fff;
   /*height: fit-content;*/
   min-height: 6vh;
@@ -88,7 +89,7 @@ background: linear-gradient(to top, #f5af19, #f12711);
   box-shadow: 5px 5px 9px -4px #000000;
 }
 
-.use-location{
+.use-location {
   background: #fff;
   width: 40vw;
   height: 6vh;
@@ -97,37 +98,37 @@ background: linear-gradient(to top, #f5af19, #f12711);
   border-radius: 0 0 4px 4px;
   margin: 0 2% 2% 0%;
   outline: none;
-  color:rgb(41, 41, 41);
+  color: rgb(41, 41, 41);
   box-sizing: border-box;
   border-top: 5px solid #ff4800;
   -webkit-box-shadow: 5px 5px 9px -5px #000000;
-  box-shadow: 5px 5px 9px -5px #000000; 
+  box-shadow: 5px 5px 9px -5px #000000;
 }
-.geo-fill{
+.geo-fill {
   margin-right: 2%;
-  vertical-align:-0.1875em;
+  vertical-align: -0.1875em;
 }
 .search-input::-webkit-input-placeholder {
-  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
   color: #000;
 }
 
 .search-input:-ms-input-placeholder {
-  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
   color: #000;
 }
 
 .search-input:-moz-placeholder {
-  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
   color: #000;
 }
 
 .search-input::-moz-placeholder {
-  font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
   color: #000;
 }
 /* ------------- WEATHER CARD -------------*/
-.weather-container{
+.weather-container {
   display: flex;
 }
 
@@ -139,92 +140,89 @@ background: linear-gradient(to top, #f5af19, #f12711);
   border-radius: 20px;
   margin: 2%;
 }
-.weather-card-title{
+.weather-card-title {
   font-size: 2rem;
 }
 
-.weather-details{
+.weather-details {
   display: flex;
   font-size: 3rem;
   justify-content: flex-start;
 }
 
-.small-icon{
+.small-icon {
   width: 20px;
   height: 20px;
 }
-.detail-icon{
+.detail-icon {
   width: 40px;
   height: 40px;
   filter: brightness(0) invert(1);
 }
-.temp-icon{
+.temp-icon {
   display: flex;
   align-items: center;
 }
-.weather-info{
+.weather-info {
   font-size: 2rem;
   align-self: flex-start;
 }
-.weather-details-descp{
+.weather-details-descp {
   margin-bottom: 2%;
   font-size: 2rem;
 }
-.weather-info-item{
+.weather-info-item {
   display: flex;
   justify-content: space-between;
 }
-.weather-info-item:last-child{
+.weather-info-item:last-child {
   border-bottom: none;
 }
 
-
-.weather-bg-block{
+.weather-bg-block {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   padding: 2%;
-  margin: 2%;
+  margin: 5% 2% 2% 2%;
 }
-.weather-icon{
+.weather-icon {
   width: 75px;
   height: 75px;
   border-radius: 50%;
 }
-.temp{
+.temp {
   font-size: 1.5rem;
   vertical-align: 0.5em;
 }
-.temp-small{
+.temp-small {
   font-size: 1.2rem;
   vertical-align: 0.35em;
 }
 
-
-.skeleton{
+.skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
 }
-@keyframes skeleton-loading{
-  0%{
-    color: rgba(199,199,199);
-    background-color: rgba(199,199,199);
+@keyframes skeleton-loading {
+  0% {
+    color: rgba(199, 199, 199);
+    background-color: rgba(199, 199, 199);
   }
-  100%{
+  100% {
     color: #fff;
     background-color: #fff;
   }
 }
-.skeleton-text{
+.skeleton-text {
   width: 100%;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
-.skeleton-fit-content{
+.skeleton-fit-content {
   width: fit-content;
   margin: 0 auto;
-  margin-bottom: .5rem;
-
+  margin-bottom: 0.5rem;
 }
 
-.divider-black{
+.divider-black {
   height: 2px;
   background-color: #000;
   width: 100%;
@@ -233,51 +231,50 @@ background: linear-gradient(to top, #f5af19, #f12711);
 
 /* ------------- MEDIA QUERIES -------------*/
 @media screen and (max-width: 765px) {
-  .search-input{
+  .search-input {
     width: 80vw;
   }
-  .use-location{
+  .use-location {
     width: 80vw;
     padding: 0.5% 0 10% 2%;
   }
-  .weather-box{
+  .weather-box {
     flex-direction: column;
     min-height: 15vh;
   }
-  .weather-icon{
+  .weather-icon {
     width: 100px;
     height: 100px;
   }
-  .weather-info{
+  .weather-info {
     margin-left: 4%;
     width: 95%;
   }
-  .weather-info-item{
+  .weather-info-item {
     display: flex;
     justify-content: space-between;
   }
-  .weather-details{
+  .weather-details {
     flex-direction: row;
   }
-  .weather-container{
+  .weather-container {
     display: block;
   }
 }
 @media screen and (min-width: 1400px) {
-  .search-input{
+  .search-input {
     width: 45vw;
   }
-  .use-location{
+  .use-location {
     width: 45vw;
     padding: 0.5% 0 0 2%;
   }
-  .weather-bg-block{
+  .weather-bg-block {
     width: 25vw;
   }
   .weather-info-item {
     width: 50vw;
   }
-
 }
 .spinner {
   position: fixed;
@@ -293,7 +290,7 @@ background: linear-gradient(to top, #f5af19, #f12711);
   border-top-color: #ff4800;
   animation: spin 1s linear infinite;
 }
-.spinner-box{
+.spinner-box {
   background-color: rgb(255, 255, 255);
   position: fixed;
   margin: auto;
@@ -304,8 +301,8 @@ background: linear-gradient(to top, #f5af19, #f12711);
   width: 150px;
   height: 150px;
   border-radius: 5%;
-    -webkit-box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
-  box-shadow: 5px 13px 14px -4px rgba(0,0,0,0.76);
+  -webkit-box-shadow: 5px 13px 14px -4px rgba(0, 0, 0, 0.76);
+  box-shadow: 5px 13px 14px -4px rgba(0, 0, 0, 0.76);
 }
 
 @keyframes spin {
@@ -314,53 +311,53 @@ background: linear-gradient(to top, #f5af19, #f12711);
   }
 }
 
-.find-location-text{
+.find-location-text {
   font-size: 2rem;
   text-align: center;
 }
 /* ------------- GLOBAL CSS -------------*/
 
-.m-0{
-  margin: 0!important;
+.m-0 {
+  margin: 0 !important;
 }
-.mb-2{
+.mb-2 {
   margin-bottom: 1%;
 }
-.mb-2{
+.mb-2 {
   margin-bottom: 2%;
 }
-.mb-10{
+.mb-10 {
   margin-bottom: 10%;
 }
 
-.col-white{
+.col-white {
   color: #fff;
 }
-.bold{
+.bold {
   font-weight: bold;
 }
-.rem-15{
+.rem-15 {
   font-size: 1.5rem;
 }
-.float-left{
+.float-left {
   float: left;
 }
-.float-right{
+.float-right {
   float: right;
 }
-.center-text{
+.center-text {
   text-align: center;
 }
-.align-flex-end{
+.align-flex-end {
   text-align: right;
 }
 .break {
   flex-basis: 100%;
   height: 0;
 }
-.border-btm-white{
+.border-btm-white {
   border-bottom: 1px solid rgb(255, 255, 255, 0.8);
 }
-.icon-align{
-    vertical-align:-0.15em;
+.icon-align {
+  vertical-align: -0.15em;
 }
