@@ -1,5 +1,5 @@
 import React from "react";
-import sunriseIcon from "../assets/images/icon-sunrise.svg"
+import Translate from "../functions/Translate";
 import { Sunrise, Sunset } from 'react-bootstrap-icons';
 
 function convertUnixTimestamp(timestamp){
@@ -13,8 +13,6 @@ function convertUnixTimestamp(timestamp){
     let hours = date.getHours();
     // Minutes part from the timestamp
     let minutes = "0" + date.getMinutes();
-    // Seconds part from the timestamp
-    let seconds = "0" + date.getSeconds();
     
     // Will display time in 10:30:23 format
     var formattedTime = hours + ':' + minutes.substr(-2)
@@ -46,7 +44,11 @@ const WeatherCard = (props) => {
                         <div className="mb-10">{currentTempCelsius}<span className="temp">°C</span></div>
                         <div>
                         
-                        <img className={'weather-icon'} src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"} />
+                        <img 
+                        className={'weather-icon'} 
+                        src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"} 
+                        alt={props.weather.icon}    
+                        />
                         
                         </div>
                     </div>
@@ -64,7 +66,7 @@ const WeatherCard = (props) => {
                 <div className="weather-info">
                     {/*todo gevoelstemperatuur*/}
                     <div className="weather-info-item border-btm-white">
-                        <div>Feels like:</div>
+                        <div><Translate string="feels-like" defaultString="Feels Like"/>:</div>
                         <div>{feelsLikeTempCelsius}<span className="temp-small">°C</span></div>
                     </div>
                     <div className="weather-info-item border-btm-white">
@@ -76,11 +78,11 @@ const WeatherCard = (props) => {
                         <div>{maxTempCelsius}<span className="temp-small">°C</span></div>
                     </div>
                     <div className="weather-info-item border-btm-white">
-                        <div>Humidity:</div>
+                        <div><Translate string="humidity" defaultString="Vochtigheid"/>:</div>
                         <div>{props.weather.humidity} %</div>
                     </div>
                     <div className="weather-info-item">
-                        <div>Pressure:</div>
+                        <div><Translate string="pressure" defaultString="Pressure"/>:</div>
                         <div>{props.weather.press} mb</div>
                     </div>
                 </div>

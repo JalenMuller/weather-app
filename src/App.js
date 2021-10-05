@@ -1,22 +1,30 @@
 import React from 'react'
 import { useState } from 'react'
-import searchIcon from "./assets/images/search-icon.png"
-import locationIcon from "./assets/images/icon-location.svg"
 import Logo from "./components/Logo";
 import "./App.css"
 import axios from './data/axios'
 import WeatherCard from "./components/WeatherCard";
 import LoadingSpinner from './components/LoadingSpinner';
 import SearchBar from './components/SearchBar';
+import LanguagePopup from './components/LanguagePopup';
+import Translate from './functions/Translate';
 
 const App =  () => {
     const [loading, setLoading] = useState('idle');
     const [weather, setWeather] = useState('');
 
-    const apiKey = '&appid=1424c156aeca3cc894f12db19e829024'
+    const apiKey = "&appid=1424c156aeca3cc894f12db19e829024"
+    const langId = localStorage.getItem('langId')
 
+    const lang = `&lang=${langId}`
     async function fetchWeather(fetchUrl){
-        const res = await axios.get(fetchUrl)
+        let res
+        try{
+        res = await axios.get(fetchUrl)
+        }catch{
+            alert('Your city was not found.')
+            return
+        }
      
 
         setWeather({
@@ -41,7 +49,7 @@ const App =  () => {
     const getWeather = async (e) => {
         if(loading === 'loading') return
         setLoading('loading')
-        let fetchUrl = "/data/2.5/weather?q="+ e.target.value + apiKey
+        let fetchUrl = "/data/2.5/weather?q="+ e.target.value + apiKey + lang
         await fetchWeather(fetchUrl)
         setLoading('done')
     }
@@ -60,7 +68,7 @@ const App =  () => {
             }
         
             function error(error) {
-              console.log("Sorry, we can\'t retrieve your local weather without location permission.");
+              console.log("Sorry, we can't retrieve your local weather without location permission.");
             }
         
           });
@@ -82,30 +90,19 @@ const App =  () => {
     };
 
 
-
-    const handleKeyPress = e => {
-        // check if key pressed is enter
-        if (e.charCode === 13) {
-            e.preventDefault()
-            getWeather(e)
-        }
-
-
-    }
-
-    const RecentLocWidget = () => {
-        const recentLoc = localStorage.getItem('recentLocation')
-        if (recentLoc){
-            return(
-            <div className="weather-bg-block">
-            <h2>Or use your most recent city</h2>
-            <h2>{recentLoc}</h2>
-            </div>
-            )
-        } else {
-            return null
-        }
-    }
+    // const RecentLocWidget = () => {
+    //     const recentLoc = localStorage.getItem('recentLocation')
+    //     if (recentLoc){
+    //         return(
+    //         <div className="weather-bg-block">
+    //         <h2>Or use your most recent city</h2>
+    //         <h2>{recentLoc}</h2>
+    //         </div>
+    //         )
+    //     } else {
+    //         return null
+    //     }
+    // }
 
     const PageBody = () =>{
         return(
@@ -113,9 +110,10 @@ const App =  () => {
                 {loading === 'loading' && <LoadingSpinner/>}
                 {loading === 'done' ? 
                 <WeatherCard weather={weather}/> : 
-                <p className="find-location-text">Search for your city to get started.</p>}
+                <p className="find-location-text"><Translate string="search-city" defaultString="Search for your city"/></p>}
                 {/* <RecentLocWidget/> */}
-              
+                <LanguagePopup/>
+                
                 
                 
             </div>

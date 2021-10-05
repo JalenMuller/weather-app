@@ -1,0 +1,18 @@
+{
+    "translations": {
+        "nl": {
+            "app-name": "React Weer App",
+            "search-city": "Zoek naar uw stad.",
+            "feels-like": "Voelt aan als",
+            "humidity": "Vochtigheid",
+            "pressure": "Druk"
+        },
+        "en": {
+            "app-name": "React Weather App",
+            "search-city": "Search for your city.",
+            "feels-like": "Feels like",
+            "humidity": "Vochtigheid",
+            "pressure": "Pressure"
+        }
+    }
+}

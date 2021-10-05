@@ -9,6 +9,7 @@ html {
   background: #f12711;
   background: -webkit-linear-gradient(to top, #f5af19, #f12711);
   background: linear-gradient(to top, #f5af19, #f12711);
+  overflow-x: hidden;
 }
 
 .App {
@@ -247,7 +248,7 @@ html {
     height: 100px;
   }
   .weather-info {
-    margin-left: 4%;
+    margin-left: 2%;
     width: 95%;
   }
   .weather-info-item {
@@ -259,6 +260,10 @@ html {
   }
   .weather-container {
     display: block;
+  }
+  .weather-bg-block {
+    padding: 5%;
+    margin: 10% 5% 1% 5%;
   }
 }
 @media screen and (min-width: 1400px) {
@@ -315,6 +320,28 @@ html {
   font-size: 2rem;
   text-align: center;
 }
+
+/* ------------- LANGUAGE SELECTION -------------*/
+.lang-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -50vw;
+  margin-top: -50vh;
+
+  background-color: #282c34;
+}
+.flag-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.flag-icon {
+  width: 20%;
+  margin: 2%;
+}
+
 /* ------------- GLOBAL CSS -------------*/
 
 .m-0 {
@@ -338,6 +365,9 @@ html {
 }
 .rem-15 {
   font-size: 1.5rem;
+}
+.rem-3 {
+  font-size: 3rem;
 }
 .float-left {
   float: left;
