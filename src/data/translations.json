@@ -5,14 +5,16 @@
             "search-city": "Zoek naar uw stad.",
             "feels-like": "Voelt aan als",
             "humidity": "Vochtigheid",
-            "pressure": "Druk"
+            "pressure": "Druk",
+            "use-location": "Of gebruik uw locatie"
         },
         "en": {
             "app-name": "React Weather App",
             "search-city": "Search for your city.",
             "feels-like": "Feels like",
             "humidity": "Vochtigheid",
-            "pressure": "Pressure"
+            "pressure": "Pressure",
+            "use-location": "Or use your location"
         }
     }
 }
