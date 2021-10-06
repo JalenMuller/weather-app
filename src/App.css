@@ -265,6 +265,10 @@ html {
     padding: 5%;
     margin: 10% 5% 1% 5%;
   }
+  .flag-icon {
+    width: 125px !important;
+    height: 125px !important;
+  }
 }
 @media screen and (min-width: 1400px) {
   .search-input {
@@ -338,8 +342,15 @@ html {
   justify-content: space-evenly;
 }
 .flag-icon {
+  box-sizing: border-box;
+  cursor: pointer;
   width: 20%;
   margin: 2%;
+  border-radius: 50%;
+}
+.flag-icon:hover {
+  border: 5px solid #fff;
+  transition: 0.1s;
 }
 
 /* ------------- GLOBAL CSS -------------*/

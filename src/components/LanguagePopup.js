@@ -1,6 +1,6 @@
 import React from 'react'
-import nlFlag from "../assets/images/nl.svg"
-import usFlag from "../assets/images/us.svg"
+import nlFlag from "../assets/images/netherlands.png"
+import ukFlag from "../assets/images/united-kingdom.png"
 function LanguagePopup() {
     const langId = localStorage.getItem('langId')
 
@@ -17,7 +17,7 @@ function LanguagePopup() {
                 <p className="center-text rem-3">Choose your language</p>
                 <div className="flag-icons">
                     <img src={nlFlag} alt="Dutch" className="flag-icon" onClick={() => setLang('nl')}/>
-                    <img src={usFlag} alt="English (US)" className="flag-icon" onClick={() => setLang('en')}/>
+                    <embed src={ukFlag} alt="English (US)" className="flag-icon" onClick={() => setLang('en-GB')}/>
                 </div>
             </div>
         )

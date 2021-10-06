@@ -14,7 +14,7 @@ function SearchBar(props){
         if (e.charCode === 13) {
             e.preventDefault()
             setLocationDiv(false)
-        props.getWeather(e)
+            props.getWeather(e)
         }
     }
 
