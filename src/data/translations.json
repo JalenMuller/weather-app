@@ -1,7 +1,7 @@
 {
     "translations": {
         "nl": {
-            "app-name": "React Weer App",
+            "app-name": "React <b>Weer App</b>",
             "search-city": "Zoek naar uw stad.",
             "feels-like": "Voelt aan als",
             "humidity": "Vochtigheid",

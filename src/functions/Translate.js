@@ -18,9 +18,7 @@ function Translate(props) {
     }
 
     return (
-        <>
-            {string}
-        </>
+        <span dangerouslySetInnerHTML={{__html: string}}></span>
     )
 }
 

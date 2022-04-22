@@ -1,11 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
-import Logo from "./components/Logo";
-import "./App.css"
+import "./css/main-theme.css"
 import axios from './data/axios'
 import WeatherCard from "./components/WeatherCard";
 import LoadingSpinner from './components/LoadingSpinner';
-import SearchBar from './components/SearchBar';
+import TopBar from './components/TopBar';
 import LanguagePopup from './components/LanguagePopup';
 import Translate from './functions/Translate';
 
@@ -123,8 +122,7 @@ const App =  () => {
 
     return (
         <div className="App">
-            <Logo/>
-            <SearchBar getWeather={getWeather} getLocalWeather={getLocalWeather}/>
+            <TopBar getWeather={getWeather} getLocalWeather={getLocalWeather}/>
             <PageBody/>
         </div>
     )

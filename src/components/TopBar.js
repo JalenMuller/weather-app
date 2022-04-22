@@ -1,6 +1,6 @@
 import { GeoFill } from 'react-bootstrap-icons';
 import {useState} from 'react'
-import Translate from '../functions/Translate';
+import Logo from "./Logo"
 
 function SearchBar(props){
     const [showLocationDiv, setLocationDiv] = useState(false)
@@ -10,7 +10,7 @@ function SearchBar(props){
         en: 'Search for your city'
     }
     const search = (e) => {
-        
+        // If key pressed = enter
         if (e.charCode === 13) {
             e.preventDefault()
             setLocationDiv(false)
@@ -19,20 +19,23 @@ function SearchBar(props){
     }
 
     return(
+        <>
         <div className="search-content">
+        <Logo/>
         <input type="text"
                placeholder= {placeholderText[langId]}
                onKeyPress={search}
                onFocus={() => setLocationDiv(true)}
                onBlur={() => setLocationDiv(false)}
-               className="search-input"
+               className="glossy input rem-15"
         />
-        {showLocationDiv &&
+        {/* {showLocationDiv &&
         <div className="use-location" onMouseDown={props.getLocalWeather}><GeoFill color="#ff4800" size={24} className="geo-fill"/><Translate string="use-location" defaultString="Or use your location"/></div>
-        }
+        } */}
         {/* <button className="search-button" onClick={getWeather}><img src={searchIcon}/></button> */}
-        {/* <button className="search-button" onClick={getLocalWeather}><img className="small-icon" src={locationIcon}/></button> */}
+        <button className="glossy icon-button rem-15" onClick={props.getLocalWeather}><GeoFill/></button>
 </div>
+</>
     )
 }
 export default SearchBar
