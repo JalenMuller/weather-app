@@ -4,7 +4,7 @@ import "./css/main-theme.css"
 import axios from './data/axios'
 import WeatherCard from "./components/WeatherCard";
 import LoadingSpinner from './components/LoadingSpinner';
-import TopBar from './components/TopBar';
+import NavBar from './components/NavBar';
 import LanguagePopup from './components/LanguagePopup';
 import Translate from './functions/Translate';
 
@@ -122,7 +122,7 @@ const App =  () => {
 
     return (
         <div className="App">
-            <TopBar getWeather={getWeather} getLocalWeather={getLocalWeather}/>
+            <NavBar getWeather={getWeather} getLocalWeather={getLocalWeather}/>
             <PageBody/>
         </div>
     )

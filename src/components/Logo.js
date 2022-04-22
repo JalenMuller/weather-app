@@ -1,6 +1,5 @@
 import Translate from "../functions/Translate"
 import { CloudsFill } from 'react-bootstrap-icons'
-import {ReactLogo} from '../assets/images/logo-react.svg'
 
 function Logo(){
     return(

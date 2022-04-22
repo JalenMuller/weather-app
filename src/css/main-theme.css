@@ -14,9 +14,17 @@ b {
 
 body {
   font-family: "OpenSans Regular";
-  background: #f12711;
-  background: -webkit-linear-gradient(to top, #f5af19, #f12711);
-  background: linear-gradient(to top, #f5af19, #f12711);
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #ffffff,
+    #ece9e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #ece9e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   overflow-x: hidden;
 }
 @media (prefers-color-scheme: dark) {
@@ -46,61 +54,91 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.logo {
+  font-size: 1.5rem;
+  background: #16365a;
+  border-radius: 5px;
+  padding: 1%;
+  color: #fff;
+  height: 20%;
+  width: fit-content;
+}
 @media (prefers-color-scheme: dark) {
   .logo {
-    margin-left: 2.5%;
-    font-size: 1.5rem;
     background: #fff;
-    border-radius: 5px;
-    padding: 1%;
     color: #16365a;
-    max-height: 6vh;
-    display: inline-block;
   }
 }
-.App-link {
-  color: #61dafb;
+@media screen and (max-width: 700px) {
+  .logo {
+    display: none;
+  }
 }
 
-/* ------------- SEARCH SECTION -------------*/
-.search-section {
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  align-items: flex-start;
-  color: #fff;
-  margin: 2.5% 0 10% 0;
-}
-.search-content {
+/* ------------- NAVBAR STYLES -------------*/
+.navbar {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
   padding: 2%;
   width: 100%;
 }
-
+.search-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
 .glossy {
-  background-color: #0c162d;
-  border: 1px solid #202637;
+  background-color: rgb(240, 240, 240);
+  border: 2.5px solid #0a2563;
   box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
-  color: #fff;
+  color: #0a2563;
   border-radius: 5px;
 }
-input {
-  padding: 1% 2.5% 1% 2.5%;
-  max-height: 5vh;
-  border: 1px solid rgb(116, 116, 116) !important;
-  display: inline-block;
+
+@media (prefers-color-scheme: dark) {
+  .glossy {
+    background-color: #0c162d;
+    border: 1px solid #a3a3a3;
+    box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
+    color: #fff;
+  }
+}
+input.search-input {
+  padding: 1.5% 2.5% 1.5% 2.5%;
+  height: 80%;
+  width: 70%;
 }
 input::placeholder {
-  color: rgb(189, 189, 189);
+  color: #0a2563;
+  font-weight: bold;
+}
+@media (prefers-color-scheme: dark) {
+  input::placeholder {
+    color: #a3a3a3;
+  }
 }
 .icon-button {
-  padding: 1% 1.5% 1% 1.5%;
-  min-height: 5vh;
-  border: 1px solid rgb(116, 116, 116);
-  width: fit-content;
-  display: inline-block;
+  padding: 1.5% 1.5% 1.5% 1.5%;
+  margin-left: 2%;
+  height: 100%;
+  font-size: 1.5rem;
+}
+.icon {
+  color: #0a2563;
+}
+.bootstrap-icon {
+  vertical-align: -0.1em;
+}
+@media (prefers-color-scheme: dark) {
+  .icon {
+    color: #fff;
+  }
 }
 
-.use-location {
+/* .use-location {
   background: #fff;
   width: 40vw;
   height: 6vh;
@@ -114,28 +152,21 @@ input::placeholder {
   border-top: 5px solid #ff4800;
   -webkit-box-shadow: 5px 5px 9px -5px #000000;
   box-shadow: 5px 5px 9px -5px #000000;
-}
-.bootstrap-icon {
-  vertical-align: -0.1em;
-}
-.search-input::-webkit-input-placeholder {
-  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
-  color: #000;
-}
+} */
 
-.search-input:-ms-input-placeholder {
-  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
-  color: #000;
-}
-
-.search-input:-moz-placeholder {
-  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
-  color: #000;
-}
-
-.search-input::-moz-placeholder {
-  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
-  color: #000;
+@media screen and (max-width: 700px) {
+  .search-items {
+    width: 80% !important;
+  }
+  input.search-input {
+    padding: 2% 2.5% 2% 2.5%;
+  }
+  .icon-button {
+    padding: 2% 1.5% 2% 1.5%;
+    margin-left: 2%;
+    height: 100%;
+    font-size: 1.5rem;
+  }
 }
 /* ------------- WEATHER CARD -------------*/
 .weather-container {
