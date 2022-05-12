@@ -6,8 +6,7 @@
   import NavBar from './components/NavBar';
   import LanguagePopup from './components/LanguagePopup';
   import Translate from './functions/Translate';
-  import {AxiosCalls} from './data/AxiosCalls'
-  import { fetchWeather } from './data/AxiosCalls';
+  import {fetchWeather, fetchLocalWeather} from './data/ApiFunctions'
 
   const App =  () => {
       const [loading, setLoading] = useState('idle');
@@ -39,41 +38,32 @@
         }
       }
 
-      function getPosition() {
+    
 
-          return new Promise((res, rej) => {
-  
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(success, error);
-              } else {
-                console.log("Sorry, your browser does not support HTML5 geolocation.");
-              }
-          
-              function success(position) {
-                res(position)
-              }
-          
-              function error(error) {
-                console.log("Sorry, we can't retrieve your local weather without location permission.");
-              }
-          
-            });
-          
-          };
+      const getLocalWeather = async () => {
+          if(loading === 'loading') return
+          setLoading('loading')
+          let res = await fetchLocalWeather();
+          if(!res){
+            setLoading('idle');
+          }else{
+          setWeatherInfo({
+            descp: res.data.weather[0].description,
+            temp: res.data.main.temp,
+            city: res.data.name,
+            humidity: res.data.main.humidity,
+            press: res.data.main.pressure,
+            feels_like: res.data.main.feels_like,
+            temp_max: res.data.main.temp_max,
+            temp_min: res.data.main.temp_min,
+            icon: res.data.weather[0].icon,
+            sunrise: res.data.sys.sunrise,
+            sunset: res.data.sys.sunset
+        })
+          setLoading('done')
+      }
 
-      // const getLocalWeather = async () => {
-      //     if(loading === 'loading') return
-      //     setLoading('loading')
-      //     const pos = await getPosition()
-      //     console.log(pos.coords)
-      //     let latitude = pos.coords.latitude
-      //     let longitude = pos.coords.longitude
-      //     console.log(pos.coords.longitude)
-      //     const fetchUrl = 'data/2.5/weather?lat=' + latitude + '&lon=' + longitude + apiKey
-      //     await fetchWeather(fetchUrl)
-      //     setLoading('done')
-
-      // };
+      };
 
 
       // const RecentLocWidget = () => {
@@ -109,7 +99,7 @@
 
       return (
           <div className="App">
-              <NavBar setWeather={setWeather} />
+              <NavBar setWeather={setWeather} getLocalWeather={getLocalWeather} />
               <PageBody/>
           </div>
       )
