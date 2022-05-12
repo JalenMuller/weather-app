@@ -14,10 +14,12 @@ function SearchBar(props){
         if (e.charCode === 13) {
             e.preventDefault()
             setLocationDiv(false)
-            props.getWeather(e)
+            props.setWeather(e)
         }
     }
-
+    const toggleNav = () => {
+        console.log('yeah')
+    }
     return(
         <>
         <div className="navbar">
@@ -33,7 +35,7 @@ function SearchBar(props){
 
         <button className="glossy icon-button" onClick={props.getLocalWeather}><GeoFill className="bootstrap-icon"/></button>
         </div>
-        <span className="icon"><List size={60}/></span>
+        <span className="icon" onClick={toggleNav}><List size={60}/></span>
 </div>
 </>
     )

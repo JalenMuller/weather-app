@@ -110,6 +110,7 @@ input.search-input {
   padding: 1.5% 2.5% 1.5% 2.5%;
   height: 80%;
   width: 70%;
+  transition: 0.5s;
 }
 input::placeholder {
   color: #0a2563;
