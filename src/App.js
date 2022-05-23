@@ -7,11 +7,14 @@
   import LanguagePopup from './components/LanguagePopup';
   import Translate from './functions/Translate';
   import {fetchWeather, fetchLocalWeather} from './data/ApiFunctions'
+import SideBar from './components/SideBar';
 
   const App =  () => {
       const [loading, setLoading] = useState('idle');
       const [weatherInfo, setWeatherInfo] = useState('');
       
+      let showSidebar = false;
+
       async function setWeather(e){
         if(loading === 'loading') return
         setLoading('loading')
@@ -83,6 +86,7 @@
       const PageBody = () =>{
           return(
               <div className="page-body">
+                  <SideBar enabled={showSidebar}/>
                   {loading === 'loading' && <LoadingSpinner/>}
                   {loading === 'done' ? 
                   <WeatherCard weather={weatherInfo}/> : 

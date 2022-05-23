@@ -1,14 +1,17 @@
 import { GeoFill, List } from 'react-bootstrap-icons';
 import {useState} from 'react'
 import Logo from "./Logo"
+import SideBar from './SideBar';
 
 function SearchBar(props){
     const [showLocationDiv, setLocationDiv] = useState(false)
+    const [showSidebar, setShowSidebar] = useState(false)
     const langId = localStorage.getItem('langId')
     const placeholderText = {
         nl: '🔎︎  Zoek naar stad',
         en: '🔎︎  Search by city'
     }
+
     const search = (e) => {
         // If key pressed = enter
         if (e.charCode === 13) {
@@ -18,10 +21,11 @@ function SearchBar(props){
         }
     }
     const toggleNav = () => {
-        console.log('yeah')
+        setShowSidebar(!showSidebar);
     }
     return(
         <>
+        <SideBar enabled={showSidebar} toggleNav={() => toggleNav()}/>
         <div className="navbar">
             <Logo/>
         <div className="search-items">
@@ -32,7 +36,6 @@ function SearchBar(props){
                onBlur={() => setLocationDiv(false)}
                className="search-input glossy rem-15"
         />
-
         <button className="glossy icon-button" onClick={props.getLocalWeather}><GeoFill className="bootstrap-icon"/></button>
         </div>
         <span className="icon" onClick={toggleNav}><List size={60}/></span>
