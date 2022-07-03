@@ -20,12 +20,12 @@ function SearchBar(props){
             props.setWeather(e)
         }
     }
-    const toggleNav = () => {
+    const toggleSidebar = () => {
         setShowSidebar(!showSidebar);
     }
     return(
         <>
-        <SideBar enabled={showSidebar} toggleNav={() => toggleNav()}/>
+        <SideBar showSidebar={showSidebar} toggleSidebar={toggleSidebar}/>
         <div className="navbar">
             <Logo/>
         <div className="search-items">
@@ -38,7 +38,7 @@ function SearchBar(props){
         />
         <button className="glossy icon-button" onClick={props.getLocalWeather}><GeoFill className="bootstrap-icon"/></button>
         </div>
-        <span className="icon" onClick={toggleNav}><List size={60}/></span>
+        <span className="icon" onClick={toggleSidebar}><List size={60}/></span>
 </div>
 </>
     )
