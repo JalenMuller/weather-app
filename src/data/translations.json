@@ -8,7 +8,7 @@
             "pressure": "Druk",
             "use-location": "Of gebruik uw locatie"
         },
-        "en-GB": {
+        "en": {
             "app-name": "React Weather App",
             "search-city": "Search for your city.",
             "feels-like": "Feels like",

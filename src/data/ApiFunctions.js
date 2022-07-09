@@ -27,17 +27,16 @@ function getPosition() {
     
     };
 
-async function fetchWeather(e, fetchUrl) {
+async function fetchWeather(city, fetchUrl) {
     let res;
     try{
-        fetchUrl = "data/2.5/weather?q="+ e.target.value + apiKey + lang
+        fetchUrl = "data/2.5/weather?q="+ city + apiKey + lang
         res = await axios.get(fetchUrl)
         // console.log(res)
         }catch{
             // alert('Your city was not found.')
             return false
         }
-        localStorage.setItem('recentLocation', res.data.name)
         return res    
     }
 
@@ -55,7 +54,6 @@ const fetchLocalWeather = async () => {
             // alert('Your city was not found.')
             return false
         }
-        localStorage.setItem('recentLocation', res.data.name)
         return res    
     }
 

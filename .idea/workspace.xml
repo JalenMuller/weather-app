@@ -20,10 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b826ec92-ccf4-4d20-bfed-12b49a1cb9f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LocationHistory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/setLanguage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LanguagePopup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Logo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/main-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main-theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ApiFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ApiFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/translations.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/translations.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +42,13 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,9 +70,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jalen\Documents\GitHub\weather-app\src\functions" />
       <recent name="$PROJECT_DIR$/src/assets/images" />
       <recent name="$PROJECT_DIR$/src/assets" />
     </key>
@@ -92,7 +109,9 @@
       <workItem from="1629788873499" duration="33000" />
       <workItem from="1630069113165" duration="7583000" />
       <workItem from="1630082597374" duration="6650000" />
-      <workItem from="1656870064724" duration="355000" />
+      <workItem from="1656870064724" duration="9003000" />
+      <workItem from="1656882933935" duration="4185000" />
+      <workItem from="1657385540450" duration="7548000" />
     </task>
     <servers />
   </component>
@@ -110,5 +129,19 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="736" y="179" key="SettingsEditor" timestamp="1657385953968">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="736" y="179" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1657385953968" />
+    <state x="1147" y="118" width="585" height="795" key="find.popup" timestamp="1656885025130">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1147" y="118" width="585" height="795" key="find.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1656885025130" />
+    <state x="1103" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1656886052276">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1103" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1656886052276" />
   </component>
 </project>

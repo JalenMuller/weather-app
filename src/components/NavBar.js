@@ -17,7 +17,8 @@ function SearchBar(props){
         if (e.charCode === 13) {
             e.preventDefault()
             setLocationDiv(false)
-            props.setWeather(e)
+            console.log(e)
+            props.setWeather(e.target.value)
         }
     }
     const toggleSidebar = () => {
@@ -36,9 +37,9 @@ function SearchBar(props){
                onBlur={() => setLocationDiv(false)}
                className="search-input glossy rem-15"
         />
-        <button className="glossy icon-button" onClick={props.getLocalWeather}><GeoFill className="bootstrap-icon"/></button>
+        <button className="glossy icon-button cursor-pointer" onClick={props.getLocalWeather}><GeoFill className="bootstrap-icon"/></button>
         </div>
-        <span className="icon" onClick={toggleSidebar}><List size={60}/></span>
+        <span id={showSidebar && "sb-icon-active"} className="sidebar-icon" onClick={toggleSidebar}><List size={60}/></span>
 </div>
 </>
     )
