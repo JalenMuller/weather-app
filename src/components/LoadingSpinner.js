@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-function LoadingSpinner(props){
-    
-        return(
-            <div className="spinner-box">
+function LoadingSpinner(props) {
+
+    return (
+        <div className="spinner-box">
             <div className="spinner"></div>
-            </div>
-        )
+        </div>
+    );
 
 }
-export default LoadingSpinner
+
+export default LoadingSpinner;

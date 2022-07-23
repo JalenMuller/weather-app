@@ -20,18 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b826ec92-ccf4-4d20-bfed-12b49a1cb9f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LocationHistory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/functions/setLanguage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LanguagePopup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoadingSpinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoadingSpinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LocationHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LocationHistory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Logo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WeatherCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/main-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main-theme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/ApiFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ApiFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/translations.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/translations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/Translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/Translate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +56,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1wtfvwnSr6QjVdfyCgcMwMHI3fL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -70,7 +79,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -111,7 +120,9 @@
       <workItem from="1630082597374" duration="6650000" />
       <workItem from="1656870064724" duration="9003000" />
       <workItem from="1656882933935" duration="4185000" />
-      <workItem from="1657385540450" duration="7548000" />
+      <workItem from="1657385540450" duration="10897000" />
+      <workItem from="1658070750798" duration="5751000" />
+      <workItem from="1658582995886" duration="2848000" />
     </task>
     <servers />
   </component>
@@ -131,10 +142,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="736" y="179" key="SettingsEditor" timestamp="1657385953968">
+    <state x="756" y="283" key="SettingsEditor" timestamp="1658075072329">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="736" y="179" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1657385953968" />
+    <state x="756" y="283" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1658075072329" />
     <state x="1147" y="118" width="585" height="795" key="find.popup" timestamp="1656885025130">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

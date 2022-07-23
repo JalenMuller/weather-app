@@ -1,5 +1,4 @@
 import axios from './axios'
-
 const langId = localStorage.getItem('langId')
 
 const apiKey = "&appid=1424c156aeca3cc894f12db19e829024"
@@ -27,34 +26,69 @@ function getPosition() {
     
     };
 
-async function fetchWeather(city, fetchUrl) {
-    let res;
-    try{
-        fetchUrl = "data/2.5/weather?q="+ city + apiKey + lang
-        res = await axios.get(fetchUrl)
-        // console.log(res)
-        }catch{
-            // alert('Your city was not found.')
-            return false
+    function cacheCity(city) {
+        if (localStorage.getItem('locationHistory')) {
+            let history = JSON.parse(localStorage.getItem('locationHistory'))
+            if (history.filter(name => name === city).length !== 0) {
+                console.log('not empty')
+                return
+            }
+            history.push(city)
+            localStorage.setItem("locationHistory", JSON.stringify(history))
+        } else {
+            localStorage.setItem("locationHistory", JSON.stringify([city]))
         }
-        return res    
     }
 
-const fetchLocalWeather = async () => {
-    const pos = await getPosition()
-    let latitude = pos.coords.latitude
-    let longitude = pos.coords.longitude
-    console.log(pos.coords.longitude)
-    const fetchUrl = 'data/2.5/weather?lat=' + latitude + '&lon=' + longitude + apiKey
-    let res;
-    try{
-        res = await axios.get(fetchUrl)
-        // console.log(res)
+
+async function fetchWeather(location){
+    let response
+    if(location !== 'geo-location') {
+        try {
+            let fetchUrl = `data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_API_KEY}${lang}`
+            let res = await axios.get(fetchUrl)
+            response = res
+            // console.log(res)
+        } catch {
+            // alert('Your city was not found.')
+            response = false
+        }
+    }else{
+        const pos = await getPosition()
+        let latitude = pos.coords.latitude
+        let longitude = pos.coords.longitude
+        console.log(pos.coords.longitude)
+        const fetchUrl = `data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_API_KEY}${lang}`
+        try{
+            response = await axios.get(fetchUrl)
+            // console.log(res)
         }catch{
             // alert('Your city was not found.')
-            return false
+            response = false
         }
-        return res    
     }
 
-export {fetchWeather, fetchLocalWeather}
+    if (!response){
+        return false
+    } else{
+        cacheCity(response.data.name)
+        return ({
+            descp: response.data.weather[0].description,
+            temp: response.data.main.temp,
+            city: response.data.name,
+            humidity: response.data.main.humidity,
+            presponses: response.data.main.presponsesure,
+            feels_like: response.data.main.feels_like,
+            temp_max: response.data.main.temp_max,
+            temp_min: response.data.main.temp_min,
+            icon: response.data.weather[0].icon,
+            sunrise: response.data.sys.sunrise,
+            sunset: response.data.sys.sunset
+        })
+    }
+    }
+
+
+
+
+export {fetchWeather}
