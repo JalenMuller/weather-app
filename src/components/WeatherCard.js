@@ -42,18 +42,17 @@ const WeatherCard = (props) => {
                 <div className="weather-card">
                     <div className="weather-block">
                         <span className='rem-2'>{props.weather.city}</span>
-                        <div className="weather-details">
-                            <div className="temp-icon">
-                                <div className="mb-10">{currentTempCelsius}<span className="temp">°C</span></div>
-                                <div>
+                        <div className="temp-icon">
+                            <div className="half-container">{currentTempCelsius}<span className="temp">°C</span>
+                            </div>
+                            <div>
 
-                                    <img
-                                        className={'weather-icon'}
-                                        src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"}
-                                        alt={props.weather.icon}
-                                    />
+                                <img
+                                    className={'weather-icon'}
+                                    src={"http://openweathermap.org/img/wn/" + props.weather.icon + "@2x.png"}
+                                    alt={props.weather.icon}
+                                />
 
-                                </div>
                             </div>
                         </div>
                         <div className="flex-row space-between">
@@ -62,7 +61,7 @@ const WeatherCard = (props) => {
                         </div>
 
                     </div>
-                    <div style={{width: "60%"}}>
+                    <div className="weather-list">
                         <div className="weather-details-descp">{props.weather.descp}</div>
                         <div className="weather-info">
                             {/*todo gevoelstemperatuur*/}

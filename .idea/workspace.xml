@@ -20,21 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b826ec92-ccf4-4d20-bfed-12b49a1cb9f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoadingSpinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoadingSpinner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LocationHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LocationHistory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Logo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/WeatherCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WeatherCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/main-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main-theme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/ApiFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ApiFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/Translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/Translate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +112,7 @@
       <workItem from="1656882933935" duration="4185000" />
       <workItem from="1657385540450" duration="10897000" />
       <workItem from="1658070750798" duration="5751000" />
-      <workItem from="1658582995886" duration="2848000" />
+      <workItem from="1658582995886" duration="6324000" />
     </task>
     <servers />
   </component>
@@ -150,6 +140,10 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="1147" y="118" width="585" height="795" key="find.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1656885025130" />
+    <state x="1072" y="242" key="run.anything.popup" timestamp="1658588352306">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1072" y="242" key="run.anything.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1658588352306" />
     <state x="1103" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1656886052276">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
