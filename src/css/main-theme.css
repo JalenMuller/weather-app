@@ -6,6 +6,7 @@
     --background-accent: #fff;
     --sidebar-color: #fff;
     --primary-color: #1966ff;
+    --primary-gradient: linear-gradient(to right bottom, rgb(0, 127, 255), rgb(0, 89, 178) 120%);
 }
 
 [data-theme="dark"] {
@@ -86,39 +87,41 @@ html, body {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background: var(--primary-color);
+    height: 9vh;
+    background: var(--primary-gradient);
 }
 
 @media screen and (max-width: 700px) {
     .navbar {
-        margin-top: 2.5%;
+        padding-top: 2.5%;
     }
 }
 
 .search-items {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
+    display:flex;
+    flex-direction: row;
 }
 
 /* ------- CARD --------- */
 .card {
     background-color: var(--card-color);
-    border-radius: 1vmax;
+    
     color: var(--text-color);
     margin: 2.5%;
     box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-    border: 4px solid var(--primary-color);
+    background: linear-gradient(#fff, #fff) padding-box, var(--primary-gradient) border-box;
+    border-radius: 1vmax;
+    border: 4px solid transparent;
 }
 
 .card-title {
     font-size: 2rem;
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: #fff;
     /*width: 100%;*/
     padding: 1%;
+    box-shadow: 0 4px 9px 0px rgb(33 33 33 / 30%);
+
     /*border-top-left-radius: 1vmax;*/
     /*border-top-right-radius: 1vmax;*/
 }
@@ -144,11 +147,11 @@ html, body {
 
 input.search-bar {
     margin: 0 auto;
-    width: 100%;
-    height: 45px;
+    width: 110%;
+    height: 6.5vh;
     padding: 0 20px;
     font-size: 1rem;
-    border: 1px solid #D0CFCE;
+    border: 2px solid #000;
     outline: none;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -179,19 +182,20 @@ input#search-bar:focus:-ms-placeholder {
     position: relative;
     float: right;
     width: 75px;
-    height: 75px;
     top: -62px;
     right: -45px;
 }
-
+.search-icon-container{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+}
 .icon-button {
     padding: 1.5% 1.5% 1.5% 1.5%;
-    height: 45px;
     font-size: 1.5rem;
-    margin-left: 6.5%;
+    margin-left: 15%;
     background: #fff;
-    border: none;
-    border-left: 2px solid #000;
+    border: 2px solid #000;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -327,11 +331,21 @@ input#search-bar:focus:-ms-placeholder {
     flex-direction: row;
     justify-content: space-between;
 }
-
+.weather-title{
+    font-size: 2rem;
+    background: var(--primary-gradient);
+    color: #fff;
+    text-align: center;
+    width: 120%;
+    padding: 2.5% 0 2.5% 0;
+    border-radius: 1vmax;
+        box-shadow: 0 4px 9px 0px rgb(33 33 33 / 30%);
+}
 .weather-details {
     display: flex;
     font-size: 3rem;
     justify-content: flex-start;
+
 }
 
 .small-icon {
@@ -353,11 +367,17 @@ input#search-bar:focus:-ms-placeholder {
     color: var(--primary-color);
     border: 3px solid var(--primary-color);
 }
-
-.half-container {
+.temp-container{
+    display: flex;
+    width: fit-content;
+    padding-right: 2.5%;
+}
+.temp-container > div:first-of-type {
     background: var(--primary-color);
     color: #fff;
     height: 100%;
+    font-size: 3rem;
+    padding: 0 5% 0 2.5%;
 }
 
 .weather-info {
@@ -372,14 +392,6 @@ input#search-bar:focus:-ms-placeholder {
 .weather-info > div > div {
     margin-left: 10px;
     margin-right: 10px;
-}
-
-.weather-list {
-    width: 60%;
-    background: var(--background-accent);
-    color: var(--text-color);
-    border-radius: 10px;
-    border: 3px solid var(--primary-color);
 }
 
 .weather-details-descp {
@@ -412,6 +424,9 @@ input#search-bar:focus:-ms-placeholder {
     box-shadow: 0 0 11px rgb(33 33 33 / 20%);
     margin: 0 20px 0 20px;
     border-radius: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
 
 }
 
@@ -689,10 +704,12 @@ input:checked + .slider:before {
     margin-bottom: 10%;
 }
 
-.m-5 {
+.m-25 {
     margin: 2.5%;
 }
-
+.mt-5-pt{
+    margin-top: 5%;
+}
 .mr-15 {
     margin-right: 15px;
 }
@@ -747,6 +764,11 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
 }
+.flex-center-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .cursor-pointer {
     cursor: pointer;
@@ -770,4 +792,10 @@ input:checked + .slider:before {
 
 .space-between {
     justify-content: space-between;
+}
+.flex{
+    display: flex;
+}
+.p10{
+    padding: 10px;
 }

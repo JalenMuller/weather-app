@@ -2,7 +2,6 @@ import axios from './axios';
 
 const langId = localStorage.getItem('langId');
 
-const apiKey = "&appid=1424c156aeca3cc894f12db19e829024";
 const lang = `&lang=${langId}`;
 
 function getPosition() {
