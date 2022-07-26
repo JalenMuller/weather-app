@@ -110,7 +110,7 @@ html, body {
     margin: 2.5%;
     box-shadow: 0 0 11px rgba(33, 33, 33, .2);
     background: linear-gradient(#fff, #fff) padding-box, var(--primary-gradient) border-box;
-    border-radius: 1vmax;
+    border-radius: 0.75vmax;
     border: 4px solid transparent;
 }
 
@@ -122,8 +122,8 @@ html, body {
     padding: 1%;
     box-shadow: 0 4px 9px 0px rgb(33 33 33 / 30%);
 
-    /*border-top-left-radius: 1vmax;*/
-    /*border-top-right-radius: 1vmax;*/
+    /*border-top-left-radius: 0.75vmax;*/
+    /*border-top-right-radius: 0.75vmax;*/
 }
 
 .widget-list {
@@ -338,7 +338,7 @@ input#search-bar:focus:-ms-placeholder {
     text-align: center;
     width: 120%;
     padding: 2.5% 0 2.5% 0;
-    border-radius: 1vmax;
+    border-radius: 0.75vmax;
         box-shadow: 0 4px 9px 0px rgb(33 33 33 / 30%);
 }
 .weather-details {

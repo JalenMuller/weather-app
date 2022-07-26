@@ -38,7 +38,7 @@ const WeatherCard = (props) => {
         <>
             {props.weather &&
             <div className="card">
-                <div className="card-title"><Translate string="todo" defaultString="Current Weather"/></div>
+                <div className="card-title"><Translate string="todo" defaultString="Current Weather in "/><b>{props.weather.city}</b></div>
                 <div className="weather-card">
                     <div className="weather-block">
                         {/* <span className='weather-title rem-2'>{props.weather.city}</span> */}
